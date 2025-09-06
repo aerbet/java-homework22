@@ -1,16 +1,28 @@
 package Task1;
 
+import java.util.Scanner;
+
 public class Employee {
     private String name;
     private String lastName;
     private int yearOfBirth;
     private int workStartYear;
 
-    public Employee(String name, String lastName, int yearOfBirth, int workStartYear) {
-        this.name = name;
-        this.lastName = lastName;
-        this.yearOfBirth = yearOfBirth;
-        this.workStartYear = workStartYear;
+    public Employee() {
+
+    }
+
+    public void askEmployeeData() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите имя сотрудника: ");
+        name = input.nextLine();
+        System.out.print("Введите фамилию сотрудника: ");
+        lastName = input.nextLine();
+
+        System.out.println("Введите год рождения сотрудника: ");
+        yearOfBirth = input.nextInt();
+        System.out.println("Введите начало года работы сотруднкиа: ");
+        workStartYear = input.nextInt();
     }
 
     public String getName() {
