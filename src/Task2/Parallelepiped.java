@@ -1,8 +1,7 @@
 package Task2;
 
+import Task2.exceptions.FigureException;
 import Task2.figure.Figure;
-
-import java.util.Scanner;
 
 public class Parallelepiped extends Figure {
 
@@ -11,14 +10,10 @@ public class Parallelepiped extends Figure {
     }
 
     @Override
-    public void calculateAreaAndVolume() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Введите длину параллелепипеда: ");
-        length = sc.nextDouble();
-        System.out.print("Введите ширину параллелепипеда: ");
-        width = sc.nextDouble();
-        System.out.print("Введите высоту параллелепипеда: ");
-        height = sc.nextDouble();
+    public void calculateAreaAndVolume() throws FigureException {
+        length = validateNumbers("длину параллелепипеда: ");
+        width = validateNumbers("ширину параллелепипеда: ");
+        height = validateNumbers("высоту параллелепипеда: ");
 
         area = 2 * (length * width + width * height + length * height);
         volume = length * width * height;

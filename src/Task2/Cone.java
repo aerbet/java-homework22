@@ -2,19 +2,14 @@ package Task2;
 
 import Task2.figure.Figure;
 
-import java.util.Scanner;
-
 public class Cone extends Figure {
     public Cone() {
     }
 
     @Override
     public void calculateAreaAndVolume() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Введите радиус конуса: ");
-        radius = sc.nextDouble();
-        System.out.print("Введите высоту конуса: ");
-        height = sc.nextDouble();
+        radius = validateNumbers("радиус конуса: ");
+        height = validateNumbers("высоту конуса: ");
 
         double coneSideArea = Math.PI * (radius * height);
         area = coneSideArea + Math.PI * Math.pow(radius, 2);

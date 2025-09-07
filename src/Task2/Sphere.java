@@ -2,8 +2,6 @@ package Task2;
 
 import Task2.figure.Figure;
 
-import java.util.Scanner;
-
 public class Sphere extends Figure {
 
     public Sphere() {
@@ -12,9 +10,7 @@ public class Sphere extends Figure {
 
     @Override
     public void calculateAreaAndVolume() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Введите радиус сферы: ");
-        radius = sc.nextDouble();
+        radius = validateNumbers("радиус сферы: ");
 
         area = 4 * Math.PI * Math.pow(radius, 2);
         volume = (double) 4 / 3 * Math.PI * Math.pow(radius, 3);

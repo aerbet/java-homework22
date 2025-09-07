@@ -4,35 +4,63 @@ import Task2.Cone;
 import Task2.Cylinder;
 import Task2.Parallelepiped;
 import Task2.Sphere;
+import Task2.exceptions.FigureException;
 
-import java.util.Scanner;
+public class FigureConsole {
 
-public class FigureConsole  {
-    public static void main(String[] args) {
+    public FigureConsole() {
+
+    }
+
+    public void runCalculation() {
         Figure parallelepiped = new Parallelepiped();
         Figure sphere = new Sphere();
         Figure cylinder = new Cylinder();
         Figure cone = new Cone();
 
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Выберите фигуру для расчета: 1. Параллелепипед 2. Сфера 3. Цилиндр 4. Конус");
-        int choice = sc.nextInt();
+        int choice = validateAskFigure();
 
         switch (choice) {
             case 1:
-                parallelepiped.calculateAreaAndVolume();
+                validateFigure(parallelepiped);
                 break;
             case 2:
-                sphere.calculateAreaAndVolume();
+                validateFigure(sphere);
                 break;
             case 3:
-                cylinder.calculateAreaAndVolume();
+                validateFigure(cylinder);
                 break;
             case 4:
-                cone.calculateAreaAndVolume();
+                validateFigure(cone);
                 break;
             default:
+        }
+    }
+
+    public static int validateAskFigure() {
+        while (true) {
+            try {
+                int value = (int) Figure.validateNumbers("фигуру для расчета: 1. Параллелепипед 2. Сфера 3. Цилиндр 4. Конус");
+
+                if (value > 4) {
+                    throw new FigureException("Вы выбрали не существующий индекс фигуры");
+                }
+
+                return value;
+            } catch (FigureException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void validateFigure(Figure figure) {
+        while (true) {
+            try {
+                figure.calculateAreaAndVolume();
+                break;
+            } catch (FigureException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

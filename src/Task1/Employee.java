@@ -32,7 +32,7 @@ public class Employee {
         int employee;
 
         if (sc.hasNextInt()) {
-            employee = sc.nextInt();
+            employee = Math.abs(sc.nextInt());
         } else {
             sc.nextLine();
             throw new EmployeeYearException("Год рождения или начало года работы не может быть строкой");
