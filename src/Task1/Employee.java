@@ -26,7 +26,7 @@ public class Employee {
                 ((experience < 5) ? "года" : "лет"));
     }
 
-    public int validateYears(String year) throws EmployeeYearException {
+    protected int validateYears(String year) throws EmployeeYearException {
         Scanner sc = new Scanner(System.in);
         System.out.printf("Введите год %s сотрудника: ", year);
         int employee;
@@ -45,7 +45,7 @@ public class Employee {
         return employee;
     }
 
-    public String validateNames(String str) throws EmployeeNamesException {
+    protected String validateNames(String str) throws EmployeeNamesException {
         Scanner sc = new Scanner(System.in);
         System.out.printf("Введите %s сотрудника: ", str);
         String employee = sc.nextLine().trim();
